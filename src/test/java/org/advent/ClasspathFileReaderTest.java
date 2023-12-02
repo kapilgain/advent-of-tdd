@@ -1,4 +1,4 @@
-package org.advent.day01;
+package org.advent;
 
 import org.junit.jupiter.api.Test;
 
@@ -9,9 +9,9 @@ public class ClasspathFileReaderTest {
 
     @Test
     public void throwsRuntimeExceptionWhenReadingFileNotExists() {
-        assertThrows(RuntimeException.class, () -> {
-            new ClasspathFileReader().readAllLines("non-existent-file.txt");
-        });
+        assertThrows(RuntimeException.class, () -> new ClasspathFileReader().readAllLines(
+                "non-existent-file.txt"
+        ));
     }
 
     @Test

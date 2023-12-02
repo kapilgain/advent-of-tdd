@@ -12,16 +12,12 @@ public class CalibrationValueRecovererTest {
 
     @Test
     public void throwsRuntimeExceptionWhenNoFirstDigitFound() {
-        assertThrows(RuntimeException.class, () -> {
-            new CalibrationValueRecoverer().findFirstDigit("hello");
-        });
+        assertThrows(RuntimeException.class, () -> new CalibrationValueRecoverer().findFirstDigit("hello"));
     }
 
     @Test
     public void throwsRuntimeExceptionWhenNoLastDigitFound() {
-        assertThrows(RuntimeException.class, () -> {
-            new CalibrationValueRecoverer().findLastDigit("world");
-        });
+        assertThrows(RuntimeException.class, () -> new CalibrationValueRecoverer().findLastDigit("world"));
     }
 
     @Test
@@ -65,9 +61,7 @@ public class CalibrationValueRecovererTest {
 
     @Test
     public void throwsRuntimeExceptionWhenRecoveringCalibrationValueFromStringWithNoDigits() {
-        assertThrows(RuntimeException.class, () -> {
-            new CalibrationValueRecoverer().recoverOne("hello");
-        });
+        assertThrows(RuntimeException.class, () -> new CalibrationValueRecoverer().recoverOne("hello"));
     }
 
     @Test

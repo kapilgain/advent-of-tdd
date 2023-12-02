@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 public class CalibrationValueRecoverer {
 
@@ -64,7 +63,7 @@ public class CalibrationValueRecoverer {
     }
 
     public List<Integer> recoverAll(List<String> lines) {
-        return lines.stream().map(this::recoverOne).collect(Collectors.toList());
+        return lines.stream().map(this::recoverOne).toList();
     }
 
     public int recoverOne(String line) {

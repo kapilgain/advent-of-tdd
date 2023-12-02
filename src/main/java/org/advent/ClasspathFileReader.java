@@ -1,4 +1,4 @@
-package org.advent.day01;
+package org.advent;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
