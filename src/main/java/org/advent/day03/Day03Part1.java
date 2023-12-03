@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Part1 {
+public class Day03Part1 {
 
     private static final List<int[]> DIRECTION_VECTORS = List.of(
             new int[]{-1, 0},

@@ -2,7 +2,7 @@ package org.advent.day03;
 
 import java.util.*;
 
-public class Part2 {
+public class Day03Part2 {
 
     private static final List<int[]> DIRECTION_VECTORS = List.of(
             new int[]{-1, 0},

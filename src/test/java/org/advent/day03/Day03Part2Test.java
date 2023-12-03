@@ -10,14 +10,14 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class Part2Test {
+class Day03Part2Test {
 
-    private Part2 part2;
+    private Day03Part2 part2;
     private char[][] testGrid;
 
     @BeforeEach
     void setUp() {
-        part2 = new Part2();
+        part2 = new Day03Part2();
         testGrid = part2.createEmptyGrid(5, 5);
     }
 

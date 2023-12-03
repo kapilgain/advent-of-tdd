@@ -9,14 +9,14 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class Part1Test {
+class Day03Part1Test {
 
-    private Part1 part1;
+    private Day03Part1 part1;
     private char[][] testGrid;
 
     @BeforeEach
     void setUp() {
-        part1 = new Part1();
+        part1 = new Day03Part1();
         testGrid = part1.createEmptyGrid(5, 5);
     }
 
