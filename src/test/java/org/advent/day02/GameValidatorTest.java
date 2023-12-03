@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class GameValidatorTest {
 
     @Test
-    public void gameInvalidIfAnyRedRevealsMoreThanMaxRed() {
+    public void gameInvalidIfAnyRedRevealIsMoreThanMaxRed() {
         var game = new Game(1);
         game.addReveal(new RGB(1, 0, 0));
         game.addReveal(new RGB(2, 0, 0));
@@ -20,7 +20,7 @@ public class GameValidatorTest {
     }
 
     @Test
-    public void gameInvalidIfAnyGreenRevealsMoreThanMaxGreen() {
+    public void gameInvalidIfAnyGreenRevealIsMoreThanMaxGreen() {
         var game = new Game(1);
         game.addReveal(new RGB(0, 1, 0));
         game.addReveal(new RGB(0, 2, 0));
@@ -30,7 +30,7 @@ public class GameValidatorTest {
     }
 
     @Test
-    public void gameInvalidIfAnyBlueRevealsMoreThanMaxBlue() {
+    public void gameInvalidIfAnyBlueRevealIsMoreThanMaxBlue() {
         var game = new Game(1);
         game.addReveal(new RGB(0, 0, 1));
         game.addReveal(new RGB(0, 0, 2));
