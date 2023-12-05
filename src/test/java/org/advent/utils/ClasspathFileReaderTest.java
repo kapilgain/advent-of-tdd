@@ -1,4 +1,4 @@
-package org.advent;
+package org.advent.utils;
 
 import org.junit.jupiter.api.Test;
 

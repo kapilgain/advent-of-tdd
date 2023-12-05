@@ -1,6 +1,6 @@
 package org.advent.day01;
 
-import org.advent.ClasspathFileReader;
+import org.advent.utils.ClasspathFileReader;
 
 public class Day01 implements Runnable {
 

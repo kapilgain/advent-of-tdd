@@ -1,6 +1,6 @@
 package org.advent.day04;
 
-import org.advent.ClasspathFileReader;
+import org.advent.utils.ClasspathFileReader;
 
 public class Day04 implements Runnable {
 
@@ -8,7 +8,7 @@ public class Day04 implements Runnable {
     public void run() {
         var lines = new ClasspathFileReader().readAllLines("day04.input");
         System.out.println(new Day04Part1().solve(lines));
-//        System.out.println(new Part2().solve(lines));
+        System.out.println(new Day04Part2().solve(lines));
     }
 
 }

@@ -1,4 +1,4 @@
-package org.advent;
+package org.advent.utils;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;

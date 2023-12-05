@@ -24,7 +24,7 @@ public class Day03Part1 {
 
         // Because '.' is ignored, we can use it to pad the grid's borders and simplify our adjacency checks
         var rows = lines.size() + 2;
-        var cols = lines.get(0).length() + 2;
+        var cols = lines.getFirst().length() + 2;
         var grid = createEmptyGrid(rows, cols);
         populateGrid(grid, lines);
         var partNumbers = findPartNumbers(grid);

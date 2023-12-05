@@ -73,7 +73,7 @@ class Day03Part2Test {
         assertFalse(gears.isEmpty());
         assertEquals(1, gears.size());
         // Note that because we have padded the grid with '.' around the borders, this is effectively 1-indexed
-        assertEquals("(2,1)", gears.get(0));
+        assertEquals("(2,1)", gears.getFirst());
     }
 
     @Test
