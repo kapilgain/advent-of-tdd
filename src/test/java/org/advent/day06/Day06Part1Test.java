@@ -31,7 +31,7 @@ class Day06Part1Test {
     }
 
     @Test
-    public void solvesPartOneSampleInput() {
+    public void solvesForTestInput() {
         assertEquals(288, underTest.solve(TEST_DATA));
     }
 

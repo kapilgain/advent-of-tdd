@@ -8,8 +8,8 @@ import java.util.List;
 public class Day06Part1 {
 
     public long solve(List<String> lines) {
-        var times = new StringUtils().splitToIntList(lines.getFirst().split(":")[1]);
-        var distances = new StringUtils().splitToIntList(lines.getLast().split(":")[1]);
+        var times = StringUtils.splitToIntList(lines.getFirst().split(":")[1]);
+        var distances = StringUtils.splitToIntList(lines.getLast().split(":")[1]);
         var product = 1;
         for (var i = 0; i < times.size(); i++) {
             product *= countSolutions(times.get(i), distances.get(i));
@@ -23,7 +23,7 @@ public class Day06Part1 {
         // We want to solve for: d > D (record distance)
         // t * (T-t) > D <=> -t^2 + T*t - D > 0
         // This is upside-down parabola, and solutions are all numbers between the roots
-        var roots = new MathUtils().solveQuadratic(-1, raceTime, -recordDistance);
+        var roots = MathUtils.solveQuadratic(-1, raceTime, -recordDistance);
 
         // Roots themselves don't count towards the solutions
         // Adding/subtracting delta so that ceil/floor will exclude natural number roots

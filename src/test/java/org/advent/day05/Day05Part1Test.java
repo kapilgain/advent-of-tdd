@@ -149,7 +149,7 @@ class Day05Part1Test {
     }
 
     @Test
-    public void solvesPartOneSampleInput() {
+    public void solvesForTestInput() {
         assertEquals(35, underTest.solve(TEST_DATA));
     }
 

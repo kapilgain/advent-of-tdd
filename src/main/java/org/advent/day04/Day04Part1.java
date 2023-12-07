@@ -10,11 +10,12 @@ import java.util.List;
 
 public class Day04Part1 {
 
-    public int solve(List<String> lines) {
-        return new MathUtils().sum(
+    public long solve(List<String> lines) {
+        return MathUtils.sum(
                 lines.stream()
                         .map(this::countMatches)
                         .map(this::toPoints)
+                        .map(point -> (long) point)
                         .toList()
         );
     }
@@ -28,16 +29,16 @@ public class Day04Part1 {
     }
 
     public List<Integer> parseWinners(String line) {
-        return new StringUtils().splitToIntList(line.split(":")[1].split("\\|")[0]);
+        return StringUtils.splitToIntList(line.split(":")[1].split("\\|")[0]);
     }
 
     public List<Integer> parseScratched(String line) {
-        return new StringUtils().splitToIntList(line.split(":")[1].split("\\|")[1]);
+        return StringUtils.splitToIntList(line.split(":")[1].split("\\|")[1]);
     }
 
     public int countMatches(String line) {
         return parseLine(line)
-                .apply((cardId, winners, scratched) -> new CollectionUtils<Integer>().intersect(winners, scratched))
+                .apply((cardId, winners, scratched) -> CollectionUtils.intersect(winners, scratched))
                 .size();
 
     }

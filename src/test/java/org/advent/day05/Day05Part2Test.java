@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
+import static org.advent.day05.Day05Part1Test.TEST_DATA;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class Day05Part2Test {
@@ -20,14 +21,14 @@ class Day05Part2Test {
 
     @Test
     public void calculatesLowestLocationValueForGivenSeedsAndMaps() {
-        var sections = PART_1.parseSections(Day05Part1Test.TEST_DATA);
+        var sections = PART_1.parseSections(TEST_DATA);
         var seeds = PART_1.parseSeeds(sections);
         var maps = PART_1.parseMaps(sections);
         assertEquals(46, underTest.lowestLocation(seeds, maps));
     }
 
     @Test
-    public void solvesPartTwoSampleInput() {
+    public void solvesForTestInput() {
         var lines = Arrays.stream("""
                 seeds: 79 14 55 13
                                                                 

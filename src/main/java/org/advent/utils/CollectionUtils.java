@@ -4,9 +4,9 @@ import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class CollectionUtils<T> {
+public class CollectionUtils {
 
-    public Set<? extends T> intersect(Collection<? extends T> first, Collection<? extends T> second) {
+    public static <T> Set<T> intersect(Collection<T> first, Collection<T> second) {
         return first.stream().filter(second::contains).collect(Collectors.toSet());
     }
 

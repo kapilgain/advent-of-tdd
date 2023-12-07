@@ -24,7 +24,7 @@ public class Day05Part1 {
     }
 
     public List<Long> parseSeeds(String[] sections) {
-        return new StringUtils().splitToLongList(sections[0].split(":")[1]);
+        return StringUtils.splitToLongList(sections[0].split(":")[1]);
     }
 
     public Map<String, List<Tuple3<Long, Long, Long>>> parseMaps(String[] sections) {
@@ -35,7 +35,7 @@ public class Day05Part1 {
             var mapName = sectionLines[0];
             var mapData = Arrays.stream(sectionLines)
                     .skip(1)
-                    .map(line -> new StringUtils().splitToLongList(line))
+                    .map(StringUtils::splitToLongList)
                     .map(triplet -> Tuple.of(triplet.getFirst(), triplet.get(1), triplet.getLast()))
                     .toList();
             returnVal.put(mapName, mapData);
