@@ -19,19 +19,19 @@ class Day06Part1Test {
     private Day06Part1 underTest;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         underTest = new Day06Part1();
     }
 
     @Test
-    public void countsNumberOfSolutionsForRaces() {
+    void countsNumberOfSolutionsForRaces() {
         assertEquals(4, underTest.countSolutions(7, 9));
         assertEquals(8, underTest.countSolutions(15, 40));
         assertEquals(9, underTest.countSolutions(30, 200));
     }
 
     @Test
-    public void solvesForTestInput() {
+    void solvesForTestInput() {
         assertEquals(288, underTest.solve(TEST_DATA));
     }
 

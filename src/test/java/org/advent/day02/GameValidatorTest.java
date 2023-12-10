@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class GameValidatorTest {
 
     @Test
-    public void gameInvalidIfAnyRedRevealIsMoreThanMaxRed() {
+    void gameInvalidIfAnyRedRevealIsMoreThanMaxRed() {
         var game = new Game(1);
         game.addReveal(new RGB(1, 0, 0));
         game.addReveal(new RGB(2, 0, 0));
@@ -20,7 +20,7 @@ public class GameValidatorTest {
     }
 
     @Test
-    public void gameInvalidIfAnyGreenRevealIsMoreThanMaxGreen() {
+    void gameInvalidIfAnyGreenRevealIsMoreThanMaxGreen() {
         var game = new Game(1);
         game.addReveal(new RGB(0, 1, 0));
         game.addReveal(new RGB(0, 2, 0));
@@ -30,7 +30,7 @@ public class GameValidatorTest {
     }
 
     @Test
-    public void gameInvalidIfAnyBlueRevealIsMoreThanMaxBlue() {
+    void gameInvalidIfAnyBlueRevealIsMoreThanMaxBlue() {
         var game = new Game(1);
         game.addReveal(new RGB(0, 0, 1));
         game.addReveal(new RGB(0, 0, 2));
@@ -41,7 +41,7 @@ public class GameValidatorTest {
 
 
     @Test
-    public void gameValidIfAllRevealsDoNotExceedMaxColours() {
+    void gameValidIfAllRevealsDoNotExceedMaxColours() {
         var game = new Game(1);
         game.addReveal(new RGB(1, 2, 3));
         game.addReveal(new RGB(4, 5, 6));
@@ -51,14 +51,14 @@ public class GameValidatorTest {
     }
 
     @Test
-    public void zeroSumForEmptyGameList() {
+    void zeroSumForEmptyGameList() {
         var validator = new GameValidator();
         var underTest = validator.sumOfValidGameIds(Collections.emptyList(), new RGB(1, 1, 1));
         assertEquals(0, underTest);
     }
 
     @Test
-    public void sumsValidGameIds() {
+    void sumsValidGameIds() {
         var game1 = new Game(1);
         game1.addReveal(new RGB(4, 0, 3));
         game1.addReveal(new RGB(1, 2, 6));

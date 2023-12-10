@@ -1,5 +1,6 @@
 package org.advent.day03;
 
+import org.advent.utils.GridUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +18,7 @@ class Day03Part1Test {
     @BeforeEach
     void setUp() {
         part1 = new Day03Part1();
-        testGrid = part1.createEmptyGrid(5, 5);
+        testGrid = GridUtils.createEmptyGrid(5, 5);
     }
 
     @Test
@@ -37,27 +38,8 @@ class Day03Part1Test {
     }
 
     @Test
-    void testCreateEmptyGrid() {
-        assertEquals(5, testGrid.length);
-        assertEquals(5, testGrid[0].length);
-        assertEquals('.', testGrid[2][2]);
-    }
-
-    @Test
-    void testPopulateGrid() {
-        part1.populateGrid(testGrid, Arrays.asList(
-                "467",
-                "*..",
-                "35."
-        ));
-        assertEquals('4', testGrid[1][1]);
-        assertEquals('*', testGrid[2][1]);
-        assertEquals('3', testGrid[3][1]);
-    }
-
-    @Test
     void testFindPartNumbers() {
-        part1.populateGrid(testGrid, Arrays.asList(
+        GridUtils.populateGrid(testGrid, Arrays.asList(
                 "467",
                 "*..",
                 "35."
@@ -68,7 +50,7 @@ class Day03Part1Test {
 
     @Test
     void testHasAdjacentSymbol() {
-        part1.populateGrid(testGrid, Arrays.asList(
+        GridUtils.populateGrid(testGrid, Arrays.asList(
                 "467",
                 "*..",
                 "35."

@@ -10,12 +10,12 @@ public class WildcardAwareHandComparatorTest {
     private HandComparator underTest;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         this.underTest = new WildcardAwareHandComparator();
     }
 
     @Test
-    public void handlesWildcardsWhenComparingHandStrengths() {
+    void handlesWildcardsWhenComparingHandStrengths() {
         var highCard = Hand.parse("32T3K 765");
         var twoPairs = Hand.parse("KK677 28");
         var fourOfKind1 = Hand.parse("T55J5 684");
@@ -30,7 +30,7 @@ public class WildcardAwareHandComparatorTest {
     }
 
     @Test
-    public void jokerIsWeakestWhenComparingCardStrength() {
+    void jokerIsWeakestWhenComparingCardStrength() {
         assertTrue(underTest.compare(Hand.parse("J2345 0"), Hand.parse("2345J 0")) < 0);
     }
 

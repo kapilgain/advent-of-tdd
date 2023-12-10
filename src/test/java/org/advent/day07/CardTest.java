@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CardTest {
 
     @Test
-    public void cardLabelSetCorrectly() {
+    void cardLabelSetCorrectly() {
         assertEquals('A', new Card('A').label());
         assertEquals('2', new Card('2').label());
     }

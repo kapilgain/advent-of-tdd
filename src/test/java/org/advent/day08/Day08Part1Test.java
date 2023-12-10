@@ -36,17 +36,17 @@ class Day08Part1Test {
     private Day08Part1 underTest;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         underTest = new Day08Part1();
     }
 
     @Test
-    public void parsesNetworkNodeIntoTuple() {
+    void parsesNetworkNodeIntoTuple() {
         assertEquals(Tuple.of("AAA", "BBB", "CCC"), underTest.parseNetworkNode("AAA = (BBB, CCC)"));
     }
 
     @Test
-    public void createsNetworkMap() {
+    void createsNetworkMap() {
         var map = underTest.createNetworkMap(TEST_DATA_2);
         assertEquals(Tuple.of("BBB", "BBB"), map.get("AAA"));
         assertEquals(Tuple.of("AAA", "ZZZ"), map.get("BBB"));
@@ -54,7 +54,7 @@ class Day08Part1Test {
     }
 
     @Test
-    public void solvesForTestInput() {
+    void solvesForTestInput() {
         assertEquals(2, underTest.solve(TEST_DATA_1));
         assertEquals(6, underTest.solve(TEST_DATA_2));
     }

@@ -13,13 +13,13 @@ public class GameTest {
     }
 
     @Test
-    public void noRevealsOnInitialisation() {
+    void noRevealsOnInitialisation() {
         var underTest = new Game(1);
         assertEquals(0, underTest.getReveals().size());
     }
 
     @Test
-    public void addsRevealedEntriesCorrectly() {
+    void addsRevealedEntriesCorrectly() {
         var underTest = new Game(1);
         underTest.addReveal(new RGB(1, 2, 3));
         underTest.addReveal(new RGB(4, 5, 6));

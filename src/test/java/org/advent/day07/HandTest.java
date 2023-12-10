@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class HandTest {
 
     @Test
-    public void initialisesHandOfCards() {
+    void initialisesHandOfCards() {
         var underTest = new Hand(
                 765,
                 List.of(
@@ -34,7 +34,7 @@ public class HandTest {
     }
 
     @Test
-    public void parsesHandFromString() {
+    void parsesHandFromString() {
         var underTest = Hand.parse("32T3K 765");
         assertEquals(765, underTest.bid());
         assertEquals(

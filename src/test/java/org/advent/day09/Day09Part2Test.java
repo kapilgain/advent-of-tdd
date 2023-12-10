@@ -12,12 +12,12 @@ class Day09Part2Test {
     private Day09Part2 underTest;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         underTest = new Day09Part2();
     }
 
     @Test
-    public void calculatesPrevNumberInSequence() {
+    void calculatesPrevNumberInSequence() {
         assertEquals(0L, underTest.prev(StringUtils.splitToLongList("0 0")));
         assertEquals(2L, underTest.prev(StringUtils.splitToLongList("2 2 2")));
         assertEquals(-2L, underTest.prev(StringUtils.splitToLongList("0 2 4 6")));
@@ -26,7 +26,7 @@ class Day09Part2Test {
     }
 
     @Test
-    public void solvesForTestInput() {
+    void solvesForTestInput() {
         assertEquals(2L, underTest.solve(TEST_DATA));
     }
 

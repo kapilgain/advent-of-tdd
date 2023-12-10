@@ -2,6 +2,8 @@ package org.advent.day03;
 
 import java.util.*;
 
+import static org.advent.utils.GridUtils.createGrid;
+
 public class Day03Part2 {
 
     private static final List<int[]> DIRECTION_VECTORS = List.of(
@@ -20,11 +22,7 @@ public class Day03Part2 {
             return 0;
         }
 
-        // Because '.' is ignored, we can use it to pad the grid's borders and simplify our adjacency checks
-        var rows = lines.size() + 2;
-        var cols = lines.getFirst().length() + 2;
-        var grid = createEmptyGrid(rows, cols);
-        populateGrid(grid, lines);
+        var grid = createGrid(lines);
         var neighbourhood = estimateGearNeighbourhoodMap(grid);
         return neighbourhood.values()
                 .stream()
@@ -36,15 +34,6 @@ public class Day03Part2 {
 
     public int calculateGearRatio(List<Integer> partNumbers) {
         return partNumbers.stream().reduce(1, (product, partNumber) -> product * partNumber);
-    }
-
-    public char[][] createEmptyGrid(int rows, int cols) {
-        char[][] grid = new char[rows][cols];
-        for (var r = 0; r < rows; r++) {
-            Arrays.fill(grid[r], '.');
-        }
-
-        return grid;
     }
 
     public Map<String, List<Integer>> estimateGearNeighbourhoodMap(char[][] grid) {
@@ -93,16 +82,6 @@ public class Day03Part2 {
         }
 
         return returnVal;
-    }
-
-    public void populateGrid(char[][] grid, List<String> lines) {
-        for (int i = 0, r = 1; i < lines.size(); i++, r++) {
-            var row = lines.get(i);
-            for (int j = 0, c = 1; j < row.length(); j++, c++) {
-                var cell = row.charAt(j);
-                grid[r][c] = cell;
-            }
-        }
     }
 
 }

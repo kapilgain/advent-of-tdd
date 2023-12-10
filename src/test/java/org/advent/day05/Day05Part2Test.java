@@ -15,12 +15,12 @@ class Day05Part2Test {
     private Day05Part2 underTest;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         underTest = new Day05Part2();
     }
 
     @Test
-    public void calculatesLowestLocationValueForGivenSeedsAndMaps() {
+    void calculatesLowestLocationValueForGivenSeedsAndMaps() {
         var sections = PART_1.parseSections(TEST_DATA);
         var seeds = PART_1.parseSeeds(sections);
         var maps = PART_1.parseMaps(sections);
@@ -28,7 +28,7 @@ class Day05Part2Test {
     }
 
     @Test
-    public void solvesForTestInput() {
+    void solvesForTestInput() {
         var lines = Arrays.stream("""
                 seeds: 79 14 55 13
                                                                 

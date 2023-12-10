@@ -11,12 +11,12 @@ class Day06Part2Test {
     private Day06Part2 underTest;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         underTest = new Day06Part2();
     }
 
     @Test
-    public void solvesForTestInput() {
+    void solvesForTestInput() {
         assertEquals(71503, underTest.solve(TEST_DATA));
     }
 

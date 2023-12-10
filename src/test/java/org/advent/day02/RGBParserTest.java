@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class RGBParserTest {
 
     @Test
-    public void throwsRuntimeExceptionIfRGBDataNotInCorrectFormat() {
+    void throwsRuntimeExceptionIfRGBDataNotInCorrectFormat() {
         var line = "Hello World";
         var underTest = new RGBParser();
         assertThrows(RuntimeException.class, () -> underTest.parse(line));
@@ -18,7 +18,7 @@ public class RGBParserTest {
     }
 
     @Test
-    public void parsesRedCorrectly() {
+    void parsesRedCorrectly() {
         var line = "10 red";
         var parser = new RGBParser();
         var underTest = parser.parse(line);
@@ -26,7 +26,7 @@ public class RGBParserTest {
     }
 
     @Test
-    public void parsesGreenCorrectly() {
+    void parsesGreenCorrectly() {
         var line = "10 green";
         var parser = new RGBParser();
         var underTest = parser.parse(line);
@@ -34,7 +34,7 @@ public class RGBParserTest {
     }
 
     @Test
-    public void parsesBlueCorrectly() {
+    void parsesBlueCorrectly() {
         var line = "10 blue";
         var parser = new RGBParser();
         var underTest = parser.parse(line);
@@ -42,7 +42,7 @@ public class RGBParserTest {
     }
 
     @Test
-    public void parsesAllColoursCorrectly() {
+    void parsesAllColoursCorrectly() {
         var line = "8 green, 6 blue, 20 red";
         var parser = new RGBParser();
         var underTest = parser.parse(line);
@@ -50,7 +50,7 @@ public class RGBParserTest {
     }
 
     @Test
-    public void parsesWhenOneColourMissing() {
+    void parsesWhenOneColourMissing() {
         var line = "3 blue, 4 red";
         var parser = new RGBParser();
         var underTest = parser.parse(line);
@@ -58,28 +58,28 @@ public class RGBParserTest {
     }
 
     @Test
-    public void throwsRuntimeExceptionWhenNoSpaceBetweenColourAndCount() {
+    void throwsRuntimeExceptionWhenNoSpaceBetweenColourAndCount() {
         var line = "3blue, 4 red";
         var underTest = new RGBParser();
         assertThrows(RuntimeException.class, () -> underTest.parse(line));
     }
 
     @Test
-    public void throwsRuntimeExceptionWhenColourNameIsMissing() {
+    void throwsRuntimeExceptionWhenColourNameIsMissing() {
         var line = "8 green, 6, 20 red";
         var underTest = new RGBParser();
         assertThrows(RuntimeException.class, () -> underTest.parse(line));
     }
 
     @Test
-    public void throwsRuntimeExceptionWhenCountIsMissing() {
+    void throwsRuntimeExceptionWhenCountIsMissing() {
         var line = "8 green, blue, 20 red";
         var underTest = new RGBParser();
         assertThrows(RuntimeException.class, () -> underTest.parse(line));
     }
 
     @Test
-    public void throwsRuntimeExceptionIfColourMisspelled() {
+    void throwsRuntimeExceptionIfColourMisspelled() {
         var line = "8 green, 6 blues, 20 red";
         var underTest = new RGBParser();
         assertThrows(RuntimeException.class, () -> underTest.parse(line));

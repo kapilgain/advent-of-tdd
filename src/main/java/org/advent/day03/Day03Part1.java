@@ -1,8 +1,9 @@
 package org.advent.day03;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+
+import static org.advent.utils.GridUtils.createGrid;
 
 public class Day03Part1 {
 
@@ -22,22 +23,9 @@ public class Day03Part1 {
             return 0;
         }
 
-        // Because '.' is ignored, we can use it to pad the grid's borders and simplify our adjacency checks
-        var rows = lines.size() + 2;
-        var cols = lines.getFirst().length() + 2;
-        var grid = createEmptyGrid(rows, cols);
-        populateGrid(grid, lines);
+        var grid = createGrid(lines);
         var partNumbers = findPartNumbers(grid);
         return partNumbers.stream().mapToInt(Integer::intValue).sum();
-    }
-
-    public char[][] createEmptyGrid(int rows, int cols) {
-        char[][] grid = new char[rows][cols];
-        for (var r = 0; r < rows; r++) {
-            Arrays.fill(grid[r], '.');
-        }
-
-        return grid;
     }
 
     public List<Integer> findPartNumbers(char[][] grid) {
@@ -79,16 +67,6 @@ public class Day03Part1 {
         }
 
         return false;
-    }
-
-    public void populateGrid(char[][] grid, List<String> lines) {
-        for (int i = 0, r = 1; i < lines.size(); i++, r++) {
-            var row = lines.get(i);
-            for (int j = 0, c = 1; j < row.length(); j++, c++) {
-                var cell = row.charAt(j);
-                grid[r][c] = cell;
-            }
-        }
     }
 
 }

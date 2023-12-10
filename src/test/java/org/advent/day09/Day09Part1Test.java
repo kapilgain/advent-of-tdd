@@ -21,12 +21,12 @@ class Day09Part1Test {
     private Day09Part1 underTest;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         underTest = new Day09Part1();
     }
 
     @Test
-    public void calculatesDeltasForGivenSequence() {
+    void calculatesDeltasForGivenSequence() {
         assertEquals(
                 List.of(3L, 3L, 5L, 9L, 15L),
                 underTest.deltas(StringUtils.splitToLongList("10 13 16 21 30 45"))
@@ -34,7 +34,7 @@ class Day09Part1Test {
     }
 
     @Test
-    public void calculatesNextNumberInSequence() {
+    void calculatesNextNumberInSequence() {
         assertEquals(0L, underTest.next(StringUtils.splitToLongList("0 0")));
         assertEquals(2L, underTest.next(StringUtils.splitToLongList("2 2 2")));
         assertEquals(8L, underTest.next(StringUtils.splitToLongList("0 2 4 6")));
@@ -43,7 +43,7 @@ class Day09Part1Test {
     }
 
     @Test
-    public void solvesForTestInput() {
+    void solvesForTestInput() {
         assertEquals(114L, underTest.solve(TEST_DATA));
     }
 

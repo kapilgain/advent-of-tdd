@@ -8,42 +8,42 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class HandTypeTest {
 
     @Test
-    public void identifiesFiveOfAKind() {
+    void identifiesFiveOfAKind() {
         assertEquals(FIVE_OF_A_KIND, HandType.of(Hand.parse("AAAAA 0")));
     }
 
     @Test
-    public void identifiesFourOfAKind() {
+    void identifiesFourOfAKind() {
         assertEquals(FOUR_OF_A_KIND, HandType.of(Hand.parse("AA8AA 0")));
     }
 
     @Test
-    public void identifiesFullHouse() {
+    void identifiesFullHouse() {
         assertEquals(FULL_HOUSE, HandType.of(Hand.parse("23332 0")));
     }
 
     @Test
-    public void identifiesThreeOfAKind() {
+    void identifiesThreeOfAKind() {
         assertEquals(THREE_OF_A_KIND, HandType.of(Hand.parse("TTT98 0")));
     }
 
     @Test
-    public void identifiesTwoPairs() {
+    void identifiesTwoPairs() {
         assertEquals(TWO_PAIRS, HandType.of(Hand.parse("23432 0")));
     }
 
     @Test
-    public void identifiesOnePair() {
+    void identifiesOnePair() {
         assertEquals(ONE_PAIR, HandType.of(Hand.parse("A23A4 0")));
     }
 
     @Test
-    public void highCardWhenAllLabelsAreDistinct() {
+    void highCardWhenAllLabelsAreDistinct() {
         assertEquals(HIGH_CARD, HandType.of(Hand.parse("23456 0")));
     }
 
     @Test
-    public void identifiesHandTypeForWildcardEnabled() {
+    void identifiesHandTypeForWildcardEnabled() {
         assertEquals(HIGH_CARD, HandType.of(Hand.parse("12345 1"), true));
 
         assertEquals(ONE_PAIR, HandType.of(Hand.parse("12344 2"), true));

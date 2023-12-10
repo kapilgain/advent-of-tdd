@@ -10,14 +10,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class GameParserTest {
 
     @Test
-    public void throwsRuntimeExceptionIfGameDataNotInCorrectFormat() {
+    void throwsRuntimeExceptionIfGameDataNotInCorrectFormat() {
         var underTest = new GameParser();
         assertThrows(RuntimeException.class, () -> underTest.parse("Hello World"));
         assertThrows(RuntimeException.class, () -> underTest.parse("Game notAnIntegerId: 1 red, 2 green, 3 blue"));
     }
 
     @Test
-    public void parsesGameId() {
+    void parsesGameId() {
         var underTest = new GameParser();
 
         assertEquals(
@@ -47,7 +47,7 @@ public class GameParserTest {
     }
 
     @Test
-    public void parsesReveals() {
+    void parsesReveals() {
         var underTest = new GameParser();
 
         assertEquals(

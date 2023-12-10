@@ -10,13 +10,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class GamePowerCalculatorTest {
 
     @Test
-    public void zeroPowerForEmptyGame() {
+    void zeroPowerForEmptyGame() {
         var underTest = new GamePowerCalculator();
         assertEquals(0, underTest.calculatePower(new Game(1)));
     }
 
     @Test
-    public void powerIsProductOfRGB() {
+    void powerIsProductOfRGB() {
         var game = new Game(1);
         game.addReveal(new RGB(1, 2, 3));
 
@@ -25,13 +25,13 @@ public class GamePowerCalculatorTest {
     }
 
     @Test
-    public void zeroSumPowerForEmptyGameList() {
+    void zeroSumPowerForEmptyGameList() {
         var underTest = new GamePowerCalculator();
         assertEquals(0, underTest.sumPowers(Collections.emptyList()));
     }
 
     @Test
-    public void calculatesSumPowerForGameList() {
+    void calculatesSumPowerForGameList() {
         var game1 = new Game(1);
         game1.addReveal(new RGB(4, 0, 3));
         game1.addReveal(new RGB(1, 2, 6));

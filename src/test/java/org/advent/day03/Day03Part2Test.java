@@ -1,5 +1,6 @@
 package org.advent.day03;
 
+import org.advent.utils.GridUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +19,7 @@ class Day03Part2Test {
     @BeforeEach
     void setUp() {
         part2 = new Day03Part2();
-        testGrid = part2.createEmptyGrid(5, 5);
+        testGrid = GridUtils.createEmptyGrid(5, 5);
     }
 
     @Test
@@ -39,7 +40,7 @@ class Day03Part2Test {
 
     @Test
     void testEstimateGearNeighbourhoodMap() {
-        part2.populateGrid(testGrid, Arrays.asList(
+        GridUtils.populateGrid(testGrid, Arrays.asList(
                 "467",
                 "*..",
                 "35."
@@ -53,7 +54,7 @@ class Day03Part2Test {
 
     @Test
     void testEstimateGearNeighbourhoodMapNoGears() {
-        part2.populateGrid(testGrid, Arrays.asList(
+        GridUtils.populateGrid(testGrid, Arrays.asList(
                 "467",
                 "...",
                 "35."
@@ -64,7 +65,7 @@ class Day03Part2Test {
 
     @Test
     void testFindAdjacentGears() {
-        part2.populateGrid(testGrid, Arrays.asList(
+        GridUtils.populateGrid(testGrid, Arrays.asList(
                 "467",
                 "*..",
                 "35."
@@ -78,7 +79,7 @@ class Day03Part2Test {
 
     @Test
     void testFindAdjacentGearsNoGears() {
-        part2.populateGrid(testGrid, Arrays.asList(
+        GridUtils.populateGrid(testGrid, Arrays.asList(
                 "467",
                 "...",
                 "35."

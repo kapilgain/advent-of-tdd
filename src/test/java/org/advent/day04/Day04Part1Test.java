@@ -14,18 +14,18 @@ class Day04Part1Test {
     private Day04Part1 underTest;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         underTest = new Day04Part1();
     }
 
     @Test
-    public void parsesCardId() {
+    void parsesCardId() {
         assertEquals(1, underTest.parseCardId("Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53"));
         assertEquals(2, underTest.parseCardId("Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19"));
     }
 
     @Test
-    public void parsesWinners() {
+    void parsesWinners() {
         assertEquals(
                 List.of(41, 48, 83, 86, 17),
                 underTest.parseWinners("Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53")
@@ -38,7 +38,7 @@ class Day04Part1Test {
     }
 
     @Test
-    public void parsesScratchedCards() {
+    void parsesScratchedCards() {
         assertEquals(
                 List.of(83, 86, 6, 31, 17, 9, 48, 53),
                 underTest.parseScratched("Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53")
@@ -51,7 +51,7 @@ class Day04Part1Test {
     }
 
     @Test
-    public void parsesLineIntoTuples() {
+    void parsesLineIntoTuples() {
         assertEquals(
                 Tuple.of(1, List.of(41, 48, 83, 86, 17), List.of(83, 86, 6, 31, 17, 9, 48, 53)),
                 underTest.parseLine("Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53")
@@ -64,7 +64,7 @@ class Day04Part1Test {
     }
 
     @Test
-    public void countMatches() {
+    void countMatches() {
         assertEquals(4, underTest.countMatches("Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53"));
         assertEquals(2, underTest.countMatches("Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19"));
         assertEquals(2, underTest.countMatches("Card 3:  1 21 53 59 44 | 69 82 63 72 16 21 14  1"));
@@ -74,7 +74,7 @@ class Day04Part1Test {
     }
 
     @Test
-    public void calculatesPointsFromNumberOfMatches() {
+    void calculatesPointsFromNumberOfMatches() {
         assertEquals(0, underTest.toPoints(-1));
         assertEquals(0, underTest.toPoints(0));
         assertEquals(1, underTest.toPoints(1));
@@ -84,7 +84,7 @@ class Day04Part1Test {
     }
 
     @Test
-    public void solvesForTestInput() {
+    void solvesForTestInput() {
         var lines = Arrays.stream("""
                 Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
                 Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19

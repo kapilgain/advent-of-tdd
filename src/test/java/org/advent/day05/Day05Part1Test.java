@@ -52,12 +52,12 @@ class Day05Part1Test {
     private Day05Part1 underTest;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         underTest = new Day05Part1();
     }
 
     @Test
-    public void parsesSectionsFromInputData() {
+    void parsesSectionsFromInputData() {
         var sections = underTest.parseSections(TEST_DATA);
         assertEquals(8, sections.length);
         assertTrue(sections[0].startsWith("seeds:"));
@@ -71,13 +71,13 @@ class Day05Part1Test {
     }
 
     @Test
-    public void parsesSeedsFromSections() {
+    void parsesSeedsFromSections() {
         var sections = underTest.parseSections(TEST_DATA);
         assertEquals(List.of(79L, 14L, 55L, 13L), underTest.parseSeeds(sections));
     }
 
     @Test
-    public void parsesAllMapsInOrder() {
+    void parsesAllMapsInOrder() {
         var sections = underTest.parseSections(TEST_DATA);
         var maps = underTest.parseMaps(sections);
         assertEquals(
@@ -95,7 +95,7 @@ class Day05Part1Test {
     }
 
     @Test
-    public void parsesSeedSoilMapFromSections() {
+    void parsesSeedSoilMapFromSections() {
         var sections = underTest.parseSections(TEST_DATA);
         var maps = underTest.parseMaps(sections);
         var seedSoilMap = maps.get("seed-to-soil map:");
@@ -106,7 +106,7 @@ class Day05Part1Test {
     }
 
     @Test
-    public void mapsSeedValueToCorrectValuesInOtherDimensions() {
+    void mapsSeedValueToCorrectValuesInOtherDimensions() {
         var sections = underTest.parseSections(TEST_DATA);
         var maps = underTest.parseMaps(sections);
         // Seed 79, soil 81, fertilizer 81, water 81, light 74, temperature 78, humidity 78, location 82.
@@ -141,7 +141,7 @@ class Day05Part1Test {
     }
 
     @Test
-    public void calculatesLowestLocationValueForGivenSeedsAndMaps() {
+    void calculatesLowestLocationValueForGivenSeedsAndMaps() {
         var sections = underTest.parseSections(TEST_DATA);
         var seeds = underTest.parseSeeds(sections);
         var maps = underTest.parseMaps(sections);
@@ -149,7 +149,7 @@ class Day05Part1Test {
     }
 
     @Test
-    public void solvesForTestInput() {
+    void solvesForTestInput() {
         assertEquals(35, underTest.solve(TEST_DATA));
     }
 
