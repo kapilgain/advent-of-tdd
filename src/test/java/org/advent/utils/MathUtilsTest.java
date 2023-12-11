@@ -42,4 +42,9 @@ public class MathUtilsTest {
         )));
     }
 
+    @Test
+    void calculatesManhattanDistanceBetweenTwoPoints() {
+        assertEquals(4, MathUtils.manhattanDistance(Tuple.of(2, 2), Tuple.of(3, 5)));
+    }
+
 }

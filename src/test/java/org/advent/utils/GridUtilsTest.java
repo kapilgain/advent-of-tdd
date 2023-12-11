@@ -11,11 +11,25 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class GridUtilsTest {
 
-    private static final List<String> TEST_DATA = Arrays.asList(
+    private static final List<String> TEST_DATA_1 = Arrays.asList(
             "467",
             "*..",
             "35."
     );
+
+    private static final List<String> TEST_DATA_2 = Arrays.stream("""
+            ...#......
+            .......#..
+            #.........
+            ..........
+            ......#...
+            .#........
+            .........#
+            ..........
+            .......#..
+            #...#.....
+            """
+            .trim().split("\n")).toList();
 
     @Test
     void testCreateEmptyGrid() {
@@ -28,7 +42,7 @@ public class GridUtilsTest {
     @Test
     void testPopulateGrid() {
         var underTest = GridUtils.createEmptyGrid(5, 5);
-        GridUtils.populateGrid(underTest, TEST_DATA);
+        GridUtils.populateGrid(underTest, TEST_DATA_1);
         assertEquals('4', underTest[1][1]);
         assertEquals('*', underTest[2][1]);
         assertEquals('3', underTest[3][1]);
@@ -36,7 +50,7 @@ public class GridUtilsTest {
 
     @Test
     void testCreateGrid() {
-        var underTest = GridUtils.createGrid(TEST_DATA);
+        var underTest = GridUtils.createGrid(TEST_DATA_1);
         assertEquals('4', underTest[1][1]);
         assertEquals('*', underTest[2][1]);
         assertEquals('3', underTest[3][1]);
@@ -44,7 +58,7 @@ public class GridUtilsTest {
 
     @Test
     void testIndexOf() {
-        var underTest = GridUtils.createGrid(TEST_DATA);
+        var underTest = GridUtils.createGrid(TEST_DATA_1);
         assertEquals(Tuple.of(1, 3), GridUtils.indexOf(underTest, '7'));
         assertEquals(Tuple.of(2, 1), GridUtils.indexOf(underTest, '*'));
         assertEquals(Tuple.of(3, 2), GridUtils.indexOf(underTest, '5'));
@@ -59,6 +73,18 @@ public class GridUtilsTest {
     @Test
     void covertsXYtoRowColIndex() {
         assertEquals(Tuple.of(3, 1), GridUtils.toXY(Tuple.of(1, 3)));
+    }
+
+    @Test
+    void testIndexOfBlankRows() {
+        var underTest = GridUtils.indexOfBlankRows(GridUtils.createGrid(TEST_DATA_2));
+        assertEquals(2, underTest.size());
+    }
+
+    @Test
+    void testIndexOfBlankCols() {
+        var underTest = GridUtils.indexOfBlankCols(GridUtils.createGrid(TEST_DATA_2));
+        assertEquals(3, underTest.size());
     }
 
 }

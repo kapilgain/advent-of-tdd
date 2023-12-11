@@ -17,14 +17,6 @@ public class Day10Part1 {
         return mainLoop.size() / 2;
     }
 
-    public char[][] createGrid(List<String> lines) {
-        var rows = lines.size() + 2;
-        var cols = lines.getFirst().length() + 2;
-        var grid = createEmptyGrid(rows, cols);
-        populateGrid(grid, lines);
-        return grid;
-    }
-
     public Set<Tuple2<Integer, Integer>> computeMainLoop(char[][] grid) {
         var sIndex = indexOf(grid, 'S');
         assert sIndex != null;

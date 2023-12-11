@@ -3,11 +3,14 @@ package org.advent.utils;
 import io.vavr.Tuple;
 import io.vavr.Tuple2;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 // 1-indexed grid
 public class GridUtils {
+
+    public static final char EMPTY = '.';
 
     public static char[][] createGrid(List<String> lines) {
         // Because '.' is ignored, we can use it to pad the grid's borders and simplify our adjacency checks
@@ -21,7 +24,7 @@ public class GridUtils {
     public static char[][] createEmptyGrid(int rows, int cols) {
         char[][] grid = new char[rows][cols];
         for (var r = 0; r < rows; r++) {
-            Arrays.fill(grid[r], '.');
+            Arrays.fill(grid[r], EMPTY);
         }
 
         return grid;
@@ -55,6 +58,44 @@ public class GridUtils {
 
     public static Tuple2<Integer, Integer> toIndex(Tuple2<Integer, Integer> xy) {
         return xy.map((x, y) -> Tuple.of(y, x));
+    }
+
+    public static List<Integer> indexOfBlankRows(char[][] grid) {
+        var returnVal = new ArrayList<Integer>();
+        for (var r = 1; r < grid.length - 1; r++) {
+            var isBlank = true;
+            for (var c = 1; c < grid[r].length - 1; c++) {
+                if (grid[r][c] != EMPTY) {
+                    isBlank = false;
+                    break;
+                }
+            }
+
+            if (isBlank) {
+                returnVal.add(r);
+            }
+        }
+
+        return returnVal;
+    }
+
+    public static List<Integer> indexOfBlankCols(char[][] grid) {
+        var returnVal = new ArrayList<Integer>();
+        for (var c = 1; c < grid[0].length - 1; c++) {
+            var isBlank = true;
+            for (var r = 1; r < grid.length - 1; r++) {
+                if (grid[r][c] != EMPTY) {
+                    isBlank = false;
+                    break;
+                }
+            }
+
+            if (isBlank) {
+                returnVal.add(c);
+            }
+        }
+
+        return returnVal;
     }
 
 }

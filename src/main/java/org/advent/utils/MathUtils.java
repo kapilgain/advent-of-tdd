@@ -30,4 +30,8 @@ public class MathUtils {
         return new GeometryFactory().createPolygon(coordinates).getArea();
     }
 
+    public static long manhattanDistance(Tuple2<Integer, Integer> first, Tuple2<Integer, Integer> second) {
+        return Math.abs(second._1 - first._1) + Math.abs(second._2 - first._2);
+    }
+
 }

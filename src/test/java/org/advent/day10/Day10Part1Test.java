@@ -1,6 +1,7 @@
 package org.advent.day10;
 
 import io.vavr.Tuple;
+import org.advent.utils.GridUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -40,18 +41,18 @@ class Day10Part1Test {
 
     @Test
     void findsAnyConnectingPipeToS() {
-        var grid = underTest.createGrid(TEST_DATA_1);
+        var grid = GridUtils.createGrid(TEST_DATA_1);
         var foundLocation = underTest.findLocationOfAnyConnectingPipeTo(Tuple.of(2, 2), grid);
         assertTrue(Set.of(Tuple.of(2, 3), Tuple.of(3, 2)).contains(foundLocation));
 
-        grid = underTest.createGrid(TEST_DATA_2);
+        grid = GridUtils.createGrid(TEST_DATA_2);
         foundLocation = underTest.findLocationOfAnyConnectingPipeTo(Tuple.of(3, 1), grid);
         assertTrue(Set.of(Tuple.of(3, 2), Tuple.of(4, 1)).contains(foundLocation));
     }
 
     @Test
     void computesMainLoop() {
-        var grid = underTest.createGrid(TEST_DATA_1);
+        var grid = GridUtils.createGrid(TEST_DATA_1);
         var loop = underTest.computeMainLoop(grid);
         assertEquals(Set.of(
                 Tuple.of(2, 2), Tuple.of(3, 2), Tuple.of(4, 2),
@@ -59,7 +60,7 @@ class Day10Part1Test {
                 Tuple.of(2, 4), Tuple.of(2, 3)
         ), loop);
 
-        grid = underTest.createGrid(TEST_DATA_2);
+        grid = GridUtils.createGrid(TEST_DATA_2);
         loop = underTest.computeMainLoop(grid);
         assertEquals(Set.of(
                 Tuple.of(1, 3), Tuple.of(2, 3), Tuple.of(2, 2), Tuple.of(3, 2), Tuple.of(3, 1), Tuple.of(4, 1),
