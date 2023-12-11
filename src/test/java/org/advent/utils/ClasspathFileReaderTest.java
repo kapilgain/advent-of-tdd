@@ -16,12 +16,9 @@ public class ClasspathFileReaderTest {
 
     @Test
     public void readsLinesIntoListFromFile() {
-        var underTest = new ClasspathFileReader().readAllLines("day01-part1.test");
-        assertEquals(4, underTest.size());
-        assertEquals("1abc2", underTest.get(0));
-        assertEquals("pqr3stu8vwx", underTest.get(1));
-        assertEquals("a1b2c3d4e5f", underTest.get(2));
-        assertEquals("treb7uchet", underTest.get(3));
+        var underTest = new ClasspathFileReader().readAllLines(".gitignore");
+        assertEquals(5, underTest.size());
+        assertEquals("# https://adventofcode.com/about#faq_copying", underTest.getFirst());
     }
 
 }
