@@ -3,26 +3,10 @@ package org.advent.day11;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.List;
-
+import static org.advent.day11.Day11Part1Test.TEST_DATA;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class Day11Part2Test {
-
-    public static final List<String> TEST_DATA = Arrays.stream("""
-            ...#......
-            .......#..
-            #.........
-            ..........
-            ......#...
-            .#........
-            .........#
-            ..........
-            .......#..
-            #...#.....
-            """
-            .trim().split("\n")).toList();
 
     private Day11Part2 underTest;
 

@@ -21,6 +21,11 @@ public class StringUtilsTest {
     }
 
     @Test
+    void splitsToIntListUsingSeparator() {
+        assertEquals(List.of(1, 2, 3), StringUtils.splitToIntList("1,2,3", ","));
+    }
+
+    @Test
     void canSplitToIntListDespitePaddedWhiteSpaces() {
         assertEquals(List.of(1, 2, 3), StringUtils.splitToIntList("  1 2 3"));
         assertEquals(List.of(1, 2, 3), StringUtils.splitToIntList("1 2 3  "));
