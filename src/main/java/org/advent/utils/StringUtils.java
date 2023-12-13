@@ -29,4 +29,9 @@ public class StringUtils {
                 .toList();
     }
 
+    public static List<String> parseSections(List<String> lines) {
+        var raw = String.join("\n", lines).trim();
+        return Arrays.stream(raw.split("\n\n")).toList();
+    }
+
 }

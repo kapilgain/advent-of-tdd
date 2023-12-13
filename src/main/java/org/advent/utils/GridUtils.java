@@ -13,18 +13,26 @@ public class GridUtils {
     public static final char EMPTY = '.';
 
     public static char[][] createGrid(List<String> lines) {
-        // Because '.' is ignored, we can use it to pad the grid's borders and simplify our adjacency checks
+        // Because '.' is usually ignored, we can use it to pad the grid's borders and simplify our adjacency checks
+        return createGrid(lines, EMPTY);
+    }
+
+    public static char[][] createGrid(List<String> lines, char empty) {
         var rows = lines.size() + 2;
         var cols = lines.getFirst().length() + 2;
-        var grid = createEmptyGrid(rows, cols);
+        var grid = createEmptyGrid(rows, cols, empty);
         populateGrid(grid, lines);
         return grid;
     }
 
     public static char[][] createEmptyGrid(int rows, int cols) {
+        return createEmptyGrid(rows, cols, EMPTY);
+    }
+
+    public static char[][] createEmptyGrid(int rows, int cols, char empty) {
         char[][] grid = new char[rows][cols];
         for (var r = 0; r < rows; r++) {
-            Arrays.fill(grid[r], EMPTY);
+            Arrays.fill(grid[r], empty);
         }
 
         return grid;
@@ -61,11 +69,15 @@ public class GridUtils {
     }
 
     public static List<Integer> indexOfBlankRows(char[][] grid) {
+        return indexOfBlankRows(grid, EMPTY);
+    }
+
+    public static List<Integer> indexOfBlankRows(char[][] grid, char empty) {
         var returnVal = new ArrayList<Integer>();
         for (var r = 1; r < grid.length - 1; r++) {
             var isBlank = true;
             for (var c = 1; c < grid[r].length - 1; c++) {
-                if (grid[r][c] != EMPTY) {
+                if (grid[r][c] != empty) {
                     isBlank = false;
                     break;
                 }
@@ -80,11 +92,15 @@ public class GridUtils {
     }
 
     public static List<Integer> indexOfBlankCols(char[][] grid) {
+        return indexOfBlankCols(grid, EMPTY);
+    }
+
+    public static List<Integer> indexOfBlankCols(char[][] grid, char empty) {
         var returnVal = new ArrayList<Integer>();
         for (var c = 1; c < grid[0].length - 1; c++) {
             var isBlank = true;
             for (var r = 1; r < grid.length - 1; r++) {
-                if (grid[r][c] != EMPTY) {
+                if (grid[r][c] != empty) {
                     isBlank = false;
                     break;
                 }
@@ -96,6 +112,27 @@ public class GridUtils {
         }
 
         return returnVal;
+    }
+
+    public static char[][] transpose(char[][] grid) {
+        var returnVal = new char[grid[0].length][grid.length];
+        for (var r = 0; r < grid.length; r++) {
+            for (var c = 0; c < grid[0].length; c++) {
+                returnVal[c][r] = grid[r][c];
+            }
+        }
+
+        return returnVal;
+    }
+
+    public static void print(char[][] grid) {
+        for (var r = 1; r < grid.length - 1; r++) {
+            for (var c = 1; c < grid[0].length - 1; c++) {
+                System.out.print(grid[r][c]);
+            }
+
+            System.out.println();
+        }
     }
 
 }

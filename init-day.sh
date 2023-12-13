@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
 
+if [ -z "$1" ]; then
+  cat <<EOF
+Usage: $0 <day>
+
+eg: for Day 09
+$0 09
+
+EOF
+exit 1
+fi
+
 DAY=$1
 echo Initialising starter code for day ${DAY}
 

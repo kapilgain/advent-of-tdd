@@ -37,4 +37,52 @@ public class StringUtilsTest {
         assertEquals(List.of(1L, 2L, 3866217991L), StringUtils.splitToLongList("1 2 3866217991"));
     }
 
+    @Test
+    void parsesSectionsFromLines() {
+        var data = """
+                #.##..##.
+                ..#.##.#.
+                ##......#
+                ##......#
+                ..#.##.#.
+                ..##..##.
+                #.#.##.#.
+                                
+                #...##..#
+                #....#..#
+                ..##..###
+                #####.##.
+                #####.##.
+                ..##..###
+                #....#..#
+                """;
+
+        var lines = data.lines().toList();
+        var underTest = StringUtils.parseSections(lines);
+
+        assertEquals(2, underTest.size());
+
+        assertEquals("""
+                #.##..##.
+                ..#.##.#.
+                ##......#
+                ##......#
+                ..#.##.#.
+                ..##..##.
+                #.#.##.#.
+                """.trim(),
+                underTest.getFirst());
+
+        assertEquals("""
+                #...##..#
+                #....#..#
+                ..##..###
+                #####.##.
+                #####.##.
+                ..##..###
+                #....#..#
+                """.trim(),
+                underTest.getLast());
+    }
+
 }

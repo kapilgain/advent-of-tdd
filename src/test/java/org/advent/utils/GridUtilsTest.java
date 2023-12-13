@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GridUtilsTest {
 
@@ -85,6 +84,39 @@ public class GridUtilsTest {
     void testIndexOfBlankCols() {
         var underTest = GridUtils.indexOfBlankCols(GridUtils.createGrid(TEST_DATA_2));
         assertEquals(3, underTest.size());
+    }
+
+    @Test
+    void testTransposeForSquareGrid() {
+        var input = new char[][]{
+                "123".toCharArray(),
+                "456".toCharArray(),
+                "789".toCharArray(),
+        };
+
+        var expected = new char[][]{
+                "147".toCharArray(),
+                "258".toCharArray(),
+                "369".toCharArray(),
+        };
+
+        assertTrue(Arrays.deepEquals(expected, GridUtils.transpose(input)));
+    }
+
+    @Test
+    void testTransposeForRectangleGrid() {
+        var input = new char[][]{
+                "123".toCharArray(),
+                "456".toCharArray(),
+        };
+
+        var expected = new char[][]{
+                "14".toCharArray(),
+                "25".toCharArray(),
+                "36".toCharArray(),
+        };
+
+        assertTrue(Arrays.deepEquals(expected, GridUtils.transpose(input)));
     }
 
 }
