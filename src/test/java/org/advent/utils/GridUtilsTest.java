@@ -119,4 +119,31 @@ public class GridUtilsTest {
         assertTrue(Arrays.deepEquals(expected, GridUtils.transpose(input)));
     }
 
+    @Test
+    void testCol() {
+        assertEquals(
+                List.of('#', '4', '*', '3', '#'),
+                GridUtils.col(GridUtils.createGrid(TEST_DATA_1, '#'), 1)
+        );
+    }
+
+    @Test
+    void testRow() {
+        assertEquals(
+                List.of('#', '4', '6', '7', '#'),
+                GridUtils.row(GridUtils.createGrid(TEST_DATA_1, '#'), 1)
+        );
+    }
+
+    @Test
+    void testAsStringRepresentationOfGrid() {
+        assertEquals("""
+                        467
+                        *..
+                        35.
+                        """,
+                GridUtils.asString(GridUtils.createGrid(TEST_DATA_1))
+        );
+    }
+
 }

@@ -3,6 +3,8 @@ package org.advent.utils;
 import io.vavr.Tuple;
 import io.vavr.Tuple2;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -125,14 +127,38 @@ public class GridUtils {
         return returnVal;
     }
 
-    public static void print(char[][] grid) {
+    public static void print(char[][] grid, PrintStream out) {
         for (var r = 1; r < grid.length - 1; r++) {
             for (var c = 1; c < grid[0].length - 1; c++) {
-                System.out.print(grid[r][c]);
+                out.print(grid[r][c]);
             }
 
-            System.out.println();
+            out.println();
         }
+    }
+
+    public static String asString(char[][] grid) {
+        var baos = new ByteArrayOutputStream();
+        print(grid, new PrintStream(baos));
+        return baos.toString();
+    }
+
+    public static List<Character> col(char[][] grid, int c) {
+        var returnVal = new ArrayList<Character>();
+        for (var row : grid) {
+            returnVal.add(row[c]);
+        }
+
+        return returnVal;
+    }
+
+    public static List<Character> row(char[][] grid, int r) {
+        var returnVal = new ArrayList<Character>();
+        for (var col : grid[r]) {
+            returnVal.add(col);
+        }
+
+        return returnVal;
     }
 
 }
