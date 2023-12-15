@@ -1,11 +1,11 @@
 package org.advent;
 
-import org.advent.day14.Day14;
+import org.advent.day15.Day15;
 
 public class Main {
 
     public static void main(String[] args) {
-        new Day14().run();
+        new Day15().run();
     }
 
 }
