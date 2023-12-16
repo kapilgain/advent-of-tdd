@@ -161,4 +161,8 @@ public class GridUtils {
         return returnVal;
     }
 
+    public static boolean isEdge(char[][] grid, Tuple2<Integer, Integer> xy) {
+        return xy._1 * xy._2 == 0 || xy._1 == grid[0].length - 1 || xy._2 == grid.length - 1;
+    }
+
 }

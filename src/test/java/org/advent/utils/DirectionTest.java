@@ -60,4 +60,20 @@ class DirectionTest {
         assertEquals(west, WEST.addTo(origin));
     }
 
+    @Test
+    void testTurnLeft() {
+        assertEquals(WEST, NORTH.turnLeft());
+        assertEquals(EAST, SOUTH.turnLeft());
+        assertEquals(NORTH, EAST.turnLeft());
+        assertEquals(SOUTH, WEST.turnLeft());
+    }
+
+    @Test
+    void testTurnRight() {
+        assertEquals(EAST, NORTH.turnRight());
+        assertEquals(WEST, SOUTH.turnRight());
+        assertEquals(SOUTH, EAST.turnRight());
+        assertEquals(NORTH, WEST.turnRight());
+    }
+
 }

@@ -34,4 +34,22 @@ public enum Direction {
         return Tuple.of((int) sum.getEntry(0), (int) sum.getEntry(1));
     }
 
+    public Direction turnLeft() {
+        return switch (this) {
+            case NORTH -> WEST;
+            case SOUTH -> EAST;
+            case EAST -> NORTH;
+            case WEST -> SOUTH;
+        };
+    }
+
+    public Direction turnRight() {
+        return switch (this) {
+            case NORTH -> EAST;
+            case SOUTH -> WEST;
+            case EAST -> SOUTH;
+            case WEST -> NORTH;
+        };
+    }
+
 }
