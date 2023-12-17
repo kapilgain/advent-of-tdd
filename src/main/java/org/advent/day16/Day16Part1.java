@@ -40,7 +40,7 @@ public class Day16Part1 {
             var photon = dequeued._1.move();
             photons = photons.enqueueAll(
                     nextPhotonDirections(photon, grid).stream()
-                            .filter(p -> !visited.contains(p) && !GridUtils.isEdge(grid, p.location()))
+                            .filter(p -> !visited.contains(p) && !GridUtils.isOutside(grid, p.location()))
                             .peek(p -> {
                                 visited.add(p);
                                 energised[p.location()._2][p.location()._1] = '#';

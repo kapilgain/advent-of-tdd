@@ -34,4 +34,8 @@ public class StringUtils {
         return Arrays.stream(raw.split("\n\n")).toList();
     }
 
+    public static List<String> readLines(String lines) {
+        return Arrays.stream(lines.trim().split("\n")).toList();
+    }
+
 }

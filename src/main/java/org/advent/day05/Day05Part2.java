@@ -15,9 +15,9 @@ public class Day05Part2 {
         var maps = PART_1.parseMaps(sections);
 
         long startTime = System.nanoTime();
-        lowestLocation(seeds, maps);
+        var returnVal = lowestLocation(seeds, maps);
         System.out.println("Execution time in milliseconds: " + (System.nanoTime() - startTime) / 1_000_000);
-        return lowestLocation(seeds, maps);
+        return returnVal;
     }
 
     public long lowestLocation(List<Long> seeds, Map<String, List<Tuple3<Long, Long, Long>>> maps) {

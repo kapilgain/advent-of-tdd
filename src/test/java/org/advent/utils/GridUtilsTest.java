@@ -149,24 +149,24 @@ public class GridUtilsTest {
     @Test
     void testGridEdges() {
         var grid = GridUtils.createGrid(TEST_DATA_1);
-        assertTrue(GridUtils.isEdge(grid, Tuple.of(0, 0)));
-        assertTrue(GridUtils.isEdge(grid, Tuple.of(0, 1)));
-        assertTrue(GridUtils.isEdge(grid, Tuple.of(0, 2)));
-        assertTrue(GridUtils.isEdge(grid, Tuple.of(0, 3)));
-        assertTrue(GridUtils.isEdge(grid, Tuple.of(0, 4)));
-        assertTrue(GridUtils.isEdge(grid, Tuple.of(1, 0)));
-        assertTrue(GridUtils.isEdge(grid, Tuple.of(2, 0)));
-        assertTrue(GridUtils.isEdge(grid, Tuple.of(3, 0)));
-        assertTrue(GridUtils.isEdge(grid, Tuple.of(4, 0)));
-        assertTrue(GridUtils.isEdge(grid, Tuple.of(4, 1)));
-        assertTrue(GridUtils.isEdge(grid, Tuple.of(4, 2)));
-        assertTrue(GridUtils.isEdge(grid, Tuple.of(4, 3)));
-        assertTrue(GridUtils.isEdge(grid, Tuple.of(4, 4)));
-        assertTrue(GridUtils.isEdge(grid, Tuple.of(1, 4)));
-        assertTrue(GridUtils.isEdge(grid, Tuple.of(2, 4)));
-        assertTrue(GridUtils.isEdge(grid, Tuple.of(3, 4)));
+        assertTrue(GridUtils.isOutside(grid, Tuple.of(0, 0)));
+        assertTrue(GridUtils.isOutside(grid, Tuple.of(0, 1)));
+        assertTrue(GridUtils.isOutside(grid, Tuple.of(0, 2)));
+        assertTrue(GridUtils.isOutside(grid, Tuple.of(0, 3)));
+        assertTrue(GridUtils.isOutside(grid, Tuple.of(0, 4)));
+        assertTrue(GridUtils.isOutside(grid, Tuple.of(1, 0)));
+        assertTrue(GridUtils.isOutside(grid, Tuple.of(2, 0)));
+        assertTrue(GridUtils.isOutside(grid, Tuple.of(3, 0)));
+        assertTrue(GridUtils.isOutside(grid, Tuple.of(4, 0)));
+        assertTrue(GridUtils.isOutside(grid, Tuple.of(4, 1)));
+        assertTrue(GridUtils.isOutside(grid, Tuple.of(4, 2)));
+        assertTrue(GridUtils.isOutside(grid, Tuple.of(4, 3)));
+        assertTrue(GridUtils.isOutside(grid, Tuple.of(4, 4)));
+        assertTrue(GridUtils.isOutside(grid, Tuple.of(1, 4)));
+        assertTrue(GridUtils.isOutside(grid, Tuple.of(2, 4)));
+        assertTrue(GridUtils.isOutside(grid, Tuple.of(3, 4)));
 
-        assertFalse(GridUtils.isEdge(grid, Tuple.of(1, 1)));
+        assertFalse(GridUtils.isOutside(grid, Tuple.of(1, 1)));
     }
 
 }
