@@ -1,6 +1,6 @@
 # Advent of TDD
 
-![Java CI](https://github.com/kapilgain/advent-of-tdd/actions/workflows/maven.yml/badge.svg)
+[![Java CI](https://github.com/kapilgain/advent-of-tdd/actions/workflows/maven.yaml/badge.svg)](https://github.com/kapilgain/advent-of-tdd/actions/workflows/maven.yaml)
 
 A follow along workshop to introduce the idea and concepts of using TDD for [Advent of Code](https://adventofcode.com) problems.
 
