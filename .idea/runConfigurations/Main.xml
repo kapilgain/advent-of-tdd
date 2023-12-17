@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+  <configuration default="false" name="Main" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="org.advent.Main" />
     <module name="advent-of-tdd" />
     <extension name="coverage">
