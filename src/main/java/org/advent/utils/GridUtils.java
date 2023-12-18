@@ -140,7 +140,7 @@ public class GridUtils {
     public static String asString(char[][] grid) {
         var baos = new ByteArrayOutputStream();
         print(grid, new PrintStream(baos));
-        return baos.toString();
+        return baos.toString().trim();
     }
 
     public static List<Character> col(char[][] grid, int c) {

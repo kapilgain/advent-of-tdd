@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class MathUtilsTest {
 
@@ -22,8 +21,8 @@ public class MathUtilsTest {
     }
 
     @Test
-    void throwsExceptionWhenCalculatingPolygonAreaWhoseGeometryIsNotFullyClosed() {
-        assertThrows(IllegalArgumentException.class, () -> MathUtils.polygonArea(List.of(
+    void closesTheLoopByAddingLastBoundaryPointIfNeededWhenCalculatingPolygonArea() {
+        assertEquals(1.0, MathUtils.polygonArea(List.of(
                 Tuple.of(0, 0),
                 Tuple.of(0, 1),
                 Tuple.of(1, 1),

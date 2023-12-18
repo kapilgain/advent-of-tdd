@@ -141,7 +141,7 @@ public class GridUtilsTest {
                         467
                         *..
                         35.
-                        """,
+                        """.trim(),
                 GridUtils.asString(GridUtils.createGrid(TEST_DATA_1))
         );
     }

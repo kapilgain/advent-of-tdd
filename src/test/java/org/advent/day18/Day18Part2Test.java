@@ -1,5 +1,6 @@
 package org.advent.day18;
 
+import org.advent.utils.Direction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,8 +17,22 @@ class Day18Part2Test {
     }
 
     @Test
+    void testParseLine() {
+        assertEquals('0', underTest.parseLine("R 6 (#70c710)")._1);
+        assertEquals(461_937L, underTest.parseLine("R 6 (#70c710)")._2);
+    }
+
+    @Test
+    void testParseDirection() {
+        assertEquals(Direction.EAST, underTest.parseDirection('0'));
+        assertEquals(Direction.SOUTH, underTest.parseDirection('1'));
+        assertEquals(Direction.WEST, underTest.parseDirection('2'));
+        assertEquals(Direction.NORTH, underTest.parseDirection('3'));
+    }
+
+    @Test
     void solvesForTestInput() {
-        assertEquals(-1L, underTest.solve(TEST_DATA));
+        assertEquals(952_408_144_115L, underTest.solve(TEST_DATA));
     }
 
 }

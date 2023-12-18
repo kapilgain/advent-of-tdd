@@ -14,20 +14,13 @@ public class Day10Part2 {
 
     public Number solve(List<String> lines) {
         var grid = createGrid(lines);
-        print(grid);
-
-        // Using Pick's formula, we can get number of enclosed integer nodes = A - (b/2) + 1
-        // where A is the polygon area, and b is the number of integer boundary points
+        // print(grid);
         var boundaryPoints = new ArrayList<>(PART_1.computeMainLoop(grid));
-
-        // Add the start location again at the end, to close the polygon geometry
-        boundaryPoints.add(boundaryPoints.getFirst());
         // System.out.println(boundaryPoints);
-
-        var area = MathUtils.polygonArea(new ArrayList<>(boundaryPoints));
-        return (int) area - boundaryPoints.size() / 2 + 1;
+        return MathUtils.countInternalPoints(boundaryPoints);
     }
 
+    @SuppressWarnings("unused")
     public void print(char[][] grid) {
         for (var row : grid) {
             for (var ch : row) {

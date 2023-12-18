@@ -17,12 +17,12 @@ public class Day10Part1 {
         return mainLoop.size() / 2;
     }
 
-    public Set<Tuple2<Integer, Integer>> computeMainLoop(char[][] grid) {
+    public Set<Tuple2<? extends Number, ? extends Number>> computeMainLoop(char[][] grid) {
         var sIndex = indexOf(grid, 'S');
         assert sIndex != null;
         var sLocation = toXY(sIndex);
 
-        var visitedLocations = new LinkedHashSet<Tuple2<Integer, Integer>>();
+        var visitedLocations = new LinkedHashSet<Tuple2<? extends Number, ? extends Number>>();
         visitedLocations.add(sLocation);
 
         var location = findLocationOfAnyConnectingPipeTo(sLocation, grid);

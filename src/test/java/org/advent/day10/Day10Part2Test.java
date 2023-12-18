@@ -74,10 +74,10 @@ class Day10Part2Test {
 
     @Test
     void solvesForTestInput() {
-        assertEquals(4, underTest.solve(TEST_DATA_1));
-        assertEquals(4, underTest.solve(TEST_DATA_2));
-        assertEquals(8, underTest.solve(TEST_DATA_3));
-        assertEquals(10, underTest.solve(TEST_DATA_4));
+        assertEquals(4L, underTest.solve(TEST_DATA_1));
+        assertEquals(4L, underTest.solve(TEST_DATA_2));
+        assertEquals(8L, underTest.solve(TEST_DATA_3));
+        assertEquals(10L, underTest.solve(TEST_DATA_4));
     }
 
 }
