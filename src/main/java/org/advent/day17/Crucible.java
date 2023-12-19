@@ -1,4 +1,6 @@
-package org.advent.utils;
+package org.advent.day17;
+
+import org.advent.utils.Pointer;
 
 import static org.apache.commons.lang3.builder.EqualsBuilder.reflectionEquals;
 import static org.apache.commons.lang3.builder.HashCodeBuilder.reflectionHashCode;

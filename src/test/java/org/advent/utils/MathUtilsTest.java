@@ -46,4 +46,12 @@ public class MathUtilsTest {
         assertEquals(4, MathUtils.manhattanDistance(Tuple.of(2, 2), Tuple.of(3, 5)));
     }
 
+    @Test
+    void calculatesIntersectionOfTwoRanges() {
+        assertEquals(Tuple.of(5, 10), MathUtils.intersectRange(Tuple.of(1, 10), Tuple.of(5, 15)));
+        assertEquals(Tuple.of(5, 10), MathUtils.intersectRange(Tuple.of(5, 15), Tuple.of(1, 10)));
+        assertEquals(Tuple.of(5, 5), MathUtils.intersectRange(Tuple.of(5, 10), Tuple.of(1, 5)));
+        assertEquals(Tuple.of(0, 0), MathUtils.intersectRange(Tuple.of(1, 4), Tuple.of(5, 10)));
+    }
+
 }

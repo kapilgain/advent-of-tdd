@@ -1,7 +1,6 @@
 package org.advent.day17;
 
 import io.vavr.collection.PriorityQueue;
-import org.advent.utils.Crucible;
 import org.advent.utils.Direction;
 import org.advent.utils.Location;
 import org.advent.utils.Pointer;

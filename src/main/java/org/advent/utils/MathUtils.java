@@ -47,4 +47,15 @@ public class MathUtils {
         return Math.abs(second._1 - first._1) + Math.abs(second._2 - first._2);
     }
 
+    public static Tuple2<Integer, Integer> intersectRange(
+            Tuple2<Integer, Integer> firstRange, Tuple2<Integer, Integer> secondRange
+    ) {
+        var returnVal = Tuple.of(Math.max(firstRange._1, secondRange._1), Math.min(firstRange._2, secondRange._2));
+        if (returnVal._1 > returnVal._2) {
+            return Tuple.of(0, 0);
+        }
+
+        return returnVal;
+    }
+
 }

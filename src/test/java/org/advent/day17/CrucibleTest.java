@@ -1,5 +1,9 @@
-package org.advent.utils;
+package org.advent.day17;
 
+import org.advent.day17.Crucible;
+import org.advent.utils.Direction;
+import org.advent.utils.Location;
+import org.advent.utils.Pointer;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
