@@ -2,8 +2,8 @@ package org.advent.day08;
 
 
 import io.vavr.Tuple2;
+import org.advent.utils.MathUtils;
 import org.advent.utils.StringUtils;
-import org.apache.commons.math3.util.ArithmeticUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -24,12 +24,7 @@ public class Day08Part2 {
                 .map(startNode -> countSteps(startNode, instructions, networkMap))
                 .toList();
 
-        var lcm = steps.getFirst();
-        for (var i = 1; i < steps.size(); i++) {
-            lcm = ArithmeticUtils.lcm(lcm, steps.get(i));
-        }
-
-        return lcm;
+        return MathUtils.lcm(steps);
     }
 
     public long countSteps(String node, List<Character> instructions, Map<String, Tuple2<String, String>> networkMap) {

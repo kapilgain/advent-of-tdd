@@ -2,6 +2,7 @@ package org.advent.utils;
 
 import io.vavr.Tuple;
 import io.vavr.Tuple2;
+import org.apache.commons.math3.util.ArithmeticUtils;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.GeometryFactory;
 
@@ -56,6 +57,18 @@ public class MathUtils {
         }
 
         return returnVal;
+    }
+
+    public static Long lcm(List<Long> numbers) {
+        if (numbers == null || numbers.isEmpty()) {
+            throw new IllegalArgumentException("Cannot calculate LCM of empty list");
+        }
+
+        var lcm = numbers.getFirst();
+        for (var i = 1; i < numbers.size(); i++) {
+            lcm = ArithmeticUtils.lcm(lcm, numbers.get(i));
+        }
+        return lcm;
     }
 
 }
