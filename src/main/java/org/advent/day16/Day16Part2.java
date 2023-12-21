@@ -10,6 +10,7 @@ import static org.advent.utils.GridUtils.createGrid;
 
 public class Day16Part2 extends Day16Part1 {
 
+    @Override
     public Number solve(List<String> lines) {
         var grid = createGrid(lines);
         var energies = new ArrayList<Integer>();

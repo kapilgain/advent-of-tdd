@@ -22,6 +22,16 @@ public class MathUtilsTest {
     }
 
     @Test
+    void solvesQuadraticCoefficients() {
+        // Solve (x - 2) * (x - 3) = f(x)
+        assertEquals(Tuple.of(1.0, -5.0, 6.0), MathUtils.solveQuadraticCoefficients(
+                Tuple.of(2L, 0L),
+                Tuple.of(3L, 0L),
+                Tuple.of(0L, 6L)
+        ));
+    }
+
+    @Test
     void closesTheLoopByAddingLastBoundaryPointIfNeededWhenCalculatingPolygonArea() {
         assertEquals(1.0, MathUtils.polygonArea(List.of(
                 Tuple.of(0, 0),

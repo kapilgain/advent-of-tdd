@@ -13,6 +13,7 @@ import static org.advent.utils.StringUtils.parseSections;
 
 public class Day19Part2 extends Day19Part1 {
 
+    @Override
     public Number solve(List<String> lines) {
         var sections = parseSections(lines);
         var workflowMap = createWorkflowMap(sections.getFirst());

@@ -12,6 +12,7 @@ public class Day15Part2 extends Day15Part1 {
 
     private final Map<Integer, List<Tuple3<Integer, String, Integer>>> boxes = new HashMap<>(256);
 
+    @Override
     public Number solve(List<String> lines) {
         initBoxes();
 

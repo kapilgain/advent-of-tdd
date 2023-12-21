@@ -8,6 +8,7 @@ import static org.advent.utils.GridUtils.isOutside;
 
 public class Day17Part2 extends Day17Part1 {
 
+    @Override
     public Number solve(List<String> lines) {
         return super.solve(lines);
     }

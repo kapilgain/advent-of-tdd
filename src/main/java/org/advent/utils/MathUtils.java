@@ -2,6 +2,9 @@ package org.advent.utils;
 
 import io.vavr.Tuple;
 import io.vavr.Tuple2;
+import io.vavr.Tuple3;
+import org.apache.commons.math3.linear.Array2DRowRealMatrix;
+import org.apache.commons.math3.linear.LUDecomposition;
 import org.apache.commons.math3.util.ArithmeticUtils;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.GeometryFactory;
@@ -21,6 +24,34 @@ public class MathUtils {
         var root1 = (-b + D) / (2 * a);
         var root2 = (-b - D) / (2 * a);
         return Tuple.of(Math.min(root1, root2), Math.max(root1, root2));
+    }
+
+    public static Tuple3<Double, Double, Double> solveQuadraticCoefficients(
+            Tuple2<Long, Long> first, Tuple2<Long, Long> second, Tuple2<Long, Long> third
+    ) {
+        var x1 = first._1;
+        var x2 = second._1;
+        var x3 = third._1;
+        var fx1 = first._2;
+        var fx2 = second._2;
+        var fx3 = third._2;
+
+        double[][] coefficients = {
+                {x1 * x1, x1, 1},
+                {x2 * x2, x2, 1},
+                {x3 * x3, x3, 1}
+        };
+        double[] constants = {fx1, fx2, fx3};
+
+        var matrix = new Array2DRowRealMatrix(coefficients);
+        var solver = new LUDecomposition(matrix).getSolver();
+        var solution = solver.solve(new Array2DRowRealMatrix(constants).getColumnVector(0));
+
+        double a = solution.getEntry(0);
+        double b = solution.getEntry(1);
+        double c = solution.getEntry(2);
+
+        return Tuple.of(a, b, c);
     }
 
     public static double polygonArea(List<Tuple2<? extends Number, ? extends Number>> vertices) {

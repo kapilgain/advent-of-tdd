@@ -14,6 +14,7 @@ import static java.util.stream.Collectors.toMap;
 
 public class Day20Part2 extends Day20Part1 {
 
+    @Override
     public Number solve(List<String> lines) {
         // There is only one module that has "rx" as a target, and it is a conjunction module
         // This is similiar to the "output" module in the second test input of part 1 which

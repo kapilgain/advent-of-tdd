@@ -8,6 +8,7 @@ import java.util.List;
 
 public class Day18Part2 extends Day18Part1 {
 
+    @Override
     public Number solve(List<String> lines) {
         long startTime = System.nanoTime();
         var returnVal = super.solve(lines);
