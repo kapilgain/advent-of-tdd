@@ -47,10 +47,9 @@ public class MathUtils {
         var solver = new LUDecomposition(matrix).getSolver();
         var solution = solver.solve(new Array2DRowRealMatrix(constants).getColumnVector(0));
 
-        double a = solution.getEntry(0);
-        double b = solution.getEntry(1);
-        double c = solution.getEntry(2);
-
+        var a = solution.getEntry(0);
+        var b = solution.getEntry(1);
+        var c = solution.getEntry(2);
         return Tuple.of(a, b, c);
     }
 

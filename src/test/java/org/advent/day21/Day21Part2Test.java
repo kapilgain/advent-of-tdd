@@ -60,7 +60,7 @@ class Day21Part2Test {
     @Test
     void solvesForTestInputSmallerMaps() {
         // Test data has grid size of 11x11
-        // For a given number of steps, we will repeat thw grid enough times so that the size is large enough to serve
+        // For a given number of steps, we will repeat the grid enough times so that the size is large enough to serve
         // as infinite map for the given test case
         var map = underTest.repeatMapNineTimes(TEST_DATA);
         assertEquals(16, underTest.countFor(6, map));

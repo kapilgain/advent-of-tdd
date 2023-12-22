@@ -6,12 +6,12 @@ import lombok.Getter;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 @Getter
 public class SparseGrid<T> {
-    private final Map<Tuple2<? extends Number, ? extends Number>, T> grid = new TreeMap<>();
+    private final Map<Tuple2<? extends Number, ? extends Number>, T> grid = new HashMap<>();
 
     public void set(Tuple2<? extends Number, ? extends Number> rowCol, T value) {
         grid.put(rowCol, value);
