@@ -9,9 +9,9 @@ import org.apache.commons.math3.util.ArithmeticUtils;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.GeometryFactory;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.*;
 
 public class MathUtils {
 
@@ -50,6 +50,7 @@ public class MathUtils {
         var a = solution.getEntry(0);
         var b = solution.getEntry(1);
         var c = solution.getEntry(2);
+        // y = ax^2 + bx + c
         return Tuple.of(a, b, c);
     }
 
@@ -99,6 +100,72 @@ public class MathUtils {
             lcm = ArithmeticUtils.lcm(lcm, numbers.get(i));
         }
         return lcm;
+    }
+
+    public static Tuple2<Double, Double> solveLinearCoefficients(
+            Tuple2<Long, Long> firstPoint, Tuple2<Long, Long> secondPoint
+    ) {
+        var x1 = firstPoint._1;
+        var x2 = secondPoint._1;
+        var fx1 = firstPoint._2;
+        var fx2 = secondPoint._2;
+
+        var a = 1.0 * (fx2 - fx1) / (x2 - x1);
+        var b = fx1 - a * x1;
+
+        // y = ax + b
+        return Tuple.of(a, b);
+    }
+
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        var bd = new BigDecimal(Double.toString(value));
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
+    }
+
+    // ax + by = c
+    public static Tuple2<Double, Double> intersectLines(
+            Tuple3<Double, Double, Double> firstLineCoefficients,
+            Tuple3<Double, Double, Double> secondLineCoefficients
+    ) {
+        var a1 = firstLineCoefficients._1;
+        var b1 = firstLineCoefficients._2;
+        var c1 = firstLineCoefficients._3;
+        var a2 = secondLineCoefficients._1;
+        var b2 = secondLineCoefficients._2;
+        var c2 = secondLineCoefficients._3;
+
+        var matrix = new Array2DRowRealMatrix(new double[][]{
+                {a1, b1},
+                {a2, b2}
+        });
+
+        var solver = new LUDecomposition(matrix).getSolver();
+        if (!solver.isNonSingular()) {
+            // Parallel lines
+            return null;
+        }
+
+        var solution = solver.solve(new Array2DRowRealMatrix(new double[][]{{c1}, {c2}}));
+        var x = solution.getEntry(0, 0);
+        var y = solution.getEntry(1, 0);
+        return Tuple.of(x, y);
+    }
+
+    public static Set<Long> findFactors(long number) {
+        var factors = new HashSet<Long>();
+        for (var i = 1L; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                factors.add(i);
+                if (i != number / i) {
+                    factors.add(number / i);
+                }
+            }
+        }
+
+        return factors;
     }
 
 }

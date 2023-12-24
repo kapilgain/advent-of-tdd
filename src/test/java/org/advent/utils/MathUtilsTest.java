@@ -4,9 +4,9 @@ import io.vavr.Tuple;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MathUtilsTest {
 
@@ -76,6 +76,54 @@ public class MathUtilsTest {
         assertEquals(2, MathUtils.lcm(List.of(2L)));
         assertEquals(6, MathUtils.lcm(List.of(2L, 3L)));
         assertEquals(12, MathUtils.lcm(List.of(2L, 3L, 4L)));
+    }
+
+    @Test
+    void solvesLinearCoefficients() {
+        // Solve 2x + 3 = f(x)
+        assertEquals(
+                Tuple.of(2.0, 3.0),
+                MathUtils.solveLinearCoefficients(
+                        Tuple.of(0L, 3L),
+                        Tuple.of(1L, 5L)
+                )
+        );
+    }
+
+    @Test
+    void roundsToThreeDecimalPlaces() {
+        assertEquals(1.000, MathUtils.round(1.0004, 3));
+        assertEquals(2.000, MathUtils.round(1.9998, 3));
+        assertEquals(-5.000, MathUtils.round(-4.9998, 3));
+    }
+
+    @Test
+    void findsIntersectionPointOfTwoLines() {
+        // y = x + 1 <=> -x + y = 1
+        // y = 2x + 7 <=> -2x + y = 7
+        assertEquals(
+                Tuple.of(-6.0, -5.0),
+                MathUtils.intersectLines(
+                        Tuple.of(-1.0, 1.0, 1.0),
+                        Tuple.of(-2.0, 1.0, 7.0)
+                )
+        );
+    }
+
+    @Test
+    void returnsNullIfLinesAreParallel() {
+        // y = x + 1 <=> -x + y = 1
+        // y = x + 7 <=> -x + y = 7
+        assertNull(MathUtils.intersectLines(
+                Tuple.of(-1.0, 1.0, 1.0),
+                Tuple.of(-1.0, 1.0, 7.0)
+        ));
+
+    }
+
+    @Test
+    void findsFactors() {
+        assertEquals(Set.of(1L, 2L, 3L, 4L, 6L, 12L), MathUtils.findFactors(12));
     }
 
 }
